@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:bind="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="quizViewModel"
+      type="com.auro.scholr.home.presentation.viewmodel.QuizViewModel" />
+
+
+  </data>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    android:orientation="vertical">
+
+    <include
+      android:id="@+id/toolbar_layout"
+      layout="@layout/toolbar_header_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/off_white">
+
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+
+          <include
+            android:id="@+id/header_parent"
+            layout="@layout/quiz_header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:visibility="gone" />
+
+
+          <!--Main Layout-->
+          <LinearLayout
+            android:id="@+id/main_parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/friend_board_bg"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/blue_color">
+
+              <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/friend_bg_img_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_210sdp"
+                android:background="@drawable/friend_background"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <include
+                  android:id="@+id/header_top_parent"
+                  layout="@layout/quiz_header_layout"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="@dimen/_8sdp"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:layout_marginEnd="@dimen/_8sdp"
+                  app:layout_constraintTop_toTopOf="parent" />
+
+                <com.auro.scholr.core.util.uiwidget.RPTextView
+                  android:id="@+id/friends_board_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_marginStart="@dimen/_15sdp"
+                  android:layout_marginTop="@dimen/_15sdp"
+                  android:text="@string/friends_leadeboard"
+                  android:textColor="@color/white"
+                  android:textSize="@dimen/_20sdp"
+                  android:textStyle="normal"
+                  app:Font="Poppins-SemiBold.ttf"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/header_top_parent" />
+
+                <LinearLayout
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/_20sdp"
+                  android:layout_marginEnd="@dimen/_15sdp"
+                  android:orientation="vertical"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/header_top_parent">
+
+
+                  <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/invite_button"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/ic_invite_button"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/add_invite_button"
+                    app:layout_constraintStart_toEndOf="@+id/friends_board_text"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <com.auro.scholr.core.util.uiwidget.RPTextView
+                      android:id="@+id/invite_text"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:paddingStart="@dimen/_15sdp"
+                      android:text="@string/invite"
+                      android:textColor="@color/white"
+                      android:textSize="@dimen/_12sdp"
+                      app:Font="Poppins-Regular.ttf"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                      android:id="@+id/fb_icon"
+                      android:layout_width="@dimen/_18sdp"
+                      android:layout_height="@dimen/_18sdp"
+                      android:layout_marginEnd="@dimen/_5sdp"
+                      android:background="@drawable/ic_add_circle"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toEndOf="@+id/invite_text"
+                      app:layout_constraintTop_toTopOf="parent" />
+
+
+                  </androidx.constraintlayout.widget.ConstraintLayout>
+
+                  <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_gravity="center"
+                    android:padding="8dp">
+
+                    <ImageView
+                      android:id="@+id/tvShowFriendRequests"
+                      android:layout_width="24dp"
+                      android:layout_height="24dp"
+                      android:background="@drawable/icon_bell"
+                      android:backgroundTint="@color/grey_color" />
+                    <TextView
+                      android:id="@+id/tvRequestCount"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="10sp"
+                      android:paddingTop="1dp"
+                      android:paddingBottom="1dp"
+                      android:visibility="gone"
+                      android:paddingLeft="4dp"
+                      android:paddingRight="4dp"
+                      android:layout_marginLeft="12dp"
+                      android:layout_gravity="right|top"
+                      android:textColor="@color/white"
+                      android:backgroundTint="@color/red_dark"
+                      android:background="@drawable/circle_auro_blue"/>
+                  </FrameLayout>
+
+
+
+                </LinearLayout>
+
+
+              </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.cardview.widget.CardView
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_40sdp"
+              android:layout_marginTop="-40dp"
+              app:cardCornerRadius="6dp"
+              app:cardElevation="0dp"
+              android:layout_marginStart="10dp"
+              android:layout_marginEnd="10dp">
+            <com.google.android.material.tabs.TabLayout
+              android:id="@+id/dine_home_tabs"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/_40sdp"
+              android:minHeight="?actionBarSize"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/friend_board_bg"
+              app:tabBackground="@drawable/tab_bg_selector_leaderboard"
+              app:tabGravity="fill"
+              app:tabIndicatorColor="@android:color/transparent"
+              app:tabIndicatorFullWidth="true"
+              app:tabMode="fixed"
+              app:tabPaddingEnd="@dimen/_10sdp"
+              app:tabPaddingStart="@dimen/_10sdp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.viewpager.widget.ViewPager
+              android:id="@+id/viewPager"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true" />
+
+
+          </LinearLayout>
+
+
+        </LinearLayout>
+      </LinearLayout>
+
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/errorConstraint"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+          android:id="@+id/errorLayout"
+          layout="@layout/error_layout" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </LinearLayout>
+</layout>

@@ -1,0 +1,17 @@
+{
+  "name": "com.nintriva.auroscholar.cordova.plugin",
+  "version": "1.0.0",
+  "description": "the plugin creates a wrapper of the auroscholar android plugin",
+  "cordova": {
+    "id": "com.nintriva.auroscholar.cordova.plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "mahesheu",
+  "license": "MIT"
+}
